@@ -54,8 +54,7 @@ content-type: application/json
 
 ## Swagger screenshot
 
-_Add a screenshot of `/docs` here after you run the server and try the full
-CRUD cycle through "Try it out" — required for submission._
+![Swagger UI](swagger.png)
 
 ## The mortality experiment
 
