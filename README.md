@@ -78,8 +78,19 @@ git remote add origin <your-repo-url>
 git push -u origin main
 ```
 
-### AI vs me (Stage 7 — bonus)
+### AI vs me (Stage 7)
+I need a FastAPI to-do list API in a single file called main.py. It should have no database — store tasks in memory as a Python list. Seed it with 3 example tasks on startup.
 
-_Fill this in after you complete Stage 7 yourself: your own prompt to an AI
-assistant, the AI's code in `ai-version/`, and at least three concrete
-differences you found between its output and this hand-built version._
+Requirements:
+
+GET / — returns a JSON description of the API
+GET /health — health check
+GET /tasks — list all tasks, with optional query params: done (bool filter), search (title substring), limit, offset
+GET /tasks/{id} — get one task, 404 if missing
+POST /tasks — create task with {"title": "..."}, returns 201
+PUT /tasks/{id} — update title and/or done, 404 if missing
+DELETE /tasks/{id} — delete task, returns 204, 404 if missing
+GET /stats — return total, done, and pending counts
+POST /reset — restore the 3 seeded tasks
+
+All errors must return JSON as {"error": "..."}. Use Pydantic models for request validation. Auto-increment IDs should never reuse a deleted task's ID.
